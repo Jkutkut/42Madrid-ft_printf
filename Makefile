@@ -38,13 +38,15 @@ libft.a: libft
 	@cp ./libft/libft.h .
 
 # Tests
-MAIN			=	tests/basic_test.c
-run_test: $(LIB_NAME) libft.h
+setup_run: $(LIB_NAME) libft.h
 	@cp -f libft.h tests/
 	@cp -f ft_printf.h tests/
-	$(COMPILE) $(MAIN) $(LIB_NAME) -o run
 
-run: run_test
+run_%: setup_run tests/%_test.c
+	@echo "Compiling test using main form $(word 2, $^)"
+	$(COMPILE) $(word 2, $^) $(LIB_NAME) -o run
+
+run: run_basic
 	./run
 
 # Clean logic
@@ -61,4 +63,6 @@ fclean:
 	@rm -rf ./libft ./libft.a ./libft.h
 	$(info Removing .h files from test directory)
 	@rm -f ./tests/libft.h ./tests/ft_printf.h
+	$(info Removing executables from root directory)
+	@rm -f ./run
 	$(info Project now clean.)
