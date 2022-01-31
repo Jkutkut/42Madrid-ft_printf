@@ -1,1 +1,4 @@
+bin
 libft*
+tests/*.h
+run
