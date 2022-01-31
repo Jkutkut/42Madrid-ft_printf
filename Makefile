@@ -27,6 +27,12 @@ bin/%.o: %.c
 	@mkdir -p $(dir $@)
 	$(COMPILE) -c $< -o $@
 
+# Libft
+libft:
+	@if [ ! -d libft ]; then git clone https://github.com/Jkutkut/42Madrid-Libft.git libft; fi
+	@cd ./libft
+	@#git pull
+
 # Clean logic
 .PHONY: re fclean
 
@@ -37,4 +43,6 @@ fclean:
 	@rm -f $(LIB_NAME)
 	$(info Removing binary directory)
 	@rm -rf ./bin
+	$(info Removing libft library)
+	@rm -rf ./libft
 	$(info Project now clean.)
