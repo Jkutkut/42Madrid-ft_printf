@@ -7,11 +7,13 @@ LIB_NAME		=	libftprintf.a
 
 
 # Binaries variables
-CONVERTER_SRC	=	converter/atoi.c
+ROOT_SRC		=	ft_printf.c
+ROOT_BIN		=	${ROOT_SRC:%.c=bin/%.o}
 
+CONVERTER_SRC	=	converter/atoi.c
 CONVERTER_BIN	=	${CONVERTER:%.c=bin/%.o}
 
-MANDATORY		=	$(CONVERTER_BIN)
+MANDATORY		=	$(ROOT_BIN) # $(CONVERTER_BIN)
 
 # Triggers
 all: $(LIB_NAME)
