@@ -6,13 +6,14 @@ COMPILE			=	@$(CC) $(FLAGS)
 LIB_NAME		=	libftprintf.a
 
 # Binaries variables
+TOOLS_SRC		=	tools/ft_hasany.c
+
 ROOT_SRC		=	ft_printf.c
-ROOT_BIN		=	${ROOT_SRC:%.c=bin/%.o}
 
-CONVERTER_SRC	=	converter/atoi.c
-CONVERTER_BIN	=	${CONVERTER:%.c=bin/%.o}
+CONVERTER_SRC	=	#converter/atoi.c
 
-MANDATORY		=	$(ROOT_BIN) # $(CONVERTER_BIN)
+MANDATORY_SRC	=	$(TOOLS_SRC) $(ROOT_SRC) $(CONVERTER_SRC)
+MANDATORY		=	${MANDATORY_SRC:%.c=bin/%.o}
 
 # Triggers
 all: $(LIB_NAME)
@@ -45,9 +46,6 @@ setup_run: $(LIB_NAME) libft.h
 run_%: setup_run tests/%_test.c
 	@echo "Compiling test using main form $(word 2, $^)"
 	$(COMPILE) $(word 2, $^) $(LIB_NAME) -o run
-
-run: run_basic
-	./run
 
 # Clean logic
 .PHONY: re fclean
