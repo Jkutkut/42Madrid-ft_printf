@@ -6,13 +6,14 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:19:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/01/31 08:23:59 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/01/31 08:41:35 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *, ...)
+int	ft_printf(const char *format, ...)
 {
+	ft_putstr(format);
 	return (0);
 }
