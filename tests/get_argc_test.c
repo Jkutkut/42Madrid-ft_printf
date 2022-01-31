@@ -6,25 +6,35 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:05:46 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/01/31 11:15:42 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/01/31 13:39:33 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
+#define TEST_L 30
+
 void	test(const char *str, int spected)
 {
-	int	result;
+	int		result;
+	size_t	l;
 
-	printf("Test: \"%s\" -> ", str);
-	result = ft_get_argv(str);
+	if (str != NULL)
+		l = TEST_L - ft_strlen(str);
+	else
+		l = TEST_L - ft_strlen("(NULL)");
+	printf("Test: ");
+	while (l--)
+		printf(" ");
+	printf("\"%s\" -> ", str);
+	result = ft_get_argc(str);
 
 	if (result == spected)
-		printf("OK");
+		printf("\033[0;32mOK\n\033[0m");
 	else
 	{
-		printf("KO!");
+		printf("\033[0;31mKO!\n\033[0m");
 		exit(0);
 	}
 }
