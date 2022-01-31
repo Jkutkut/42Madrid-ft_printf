@@ -5,7 +5,6 @@ LIB_CC			=	ar -crs
 COMPILE			=	@$(CC) $(FLAGS)
 LIB_NAME		=	libftprintf.a
 
-
 # Binaries variables
 ROOT_SRC		=	ft_printf.c
 ROOT_BIN		=	${ROOT_SRC:%.c=bin/%.o}
@@ -29,9 +28,12 @@ bin/%.o: %.c
 
 # Libft
 libft:
+	$(info Obtaining latest version of Libft)
 	@if [ ! -d libft ]; then git clone https://github.com/Jkutkut/42Madrid-Libft.git libft; fi
-	@cd ./libft
-	@#git pull
+	$(info Compiling library and moving libft.a, libft.h to the root directory)
+	make bonus -C ./libft
+	@cp ./libft/libft.a .
+	@cp ./libft/libft.h .
 
 # Clean logic
 .PHONY: re fclean
@@ -44,5 +46,5 @@ fclean:
 	$(info Removing binary directory)
 	@rm -rf ./bin
 	$(info Removing libft library)
-	@rm -rf ./libft
+	@rm -rf ./libft ./libft.a
 	$(info Project now clean.)
