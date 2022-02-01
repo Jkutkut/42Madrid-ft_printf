@@ -2,11 +2,12 @@
 CC				=	gcc
 FLAGS			=	-Wall -Wextra # ! TODO -Werror
 LIB_CC			=	ar -crT
-COMPILE			=	@$(CC) $(FLAGS)
+COMPILE			=	$(CC) $(FLAGS)
 LIB_NAME		=	libftprintf.a
 
 # Binaries variables
-TOOLS_SRC		=	tools/ft_hasany.c
+TOOLS_SRC		=	tools/ft_hasany.c \
+					tools/ft_get_argc.c
 
 ROOT_SRC		=	ft_printf.c
 
@@ -25,7 +26,8 @@ $(LIB_NAME): libft.a $(MANDATORY)
 bin/%.o: %.c
 	@echo "- Compiling $< -> $@"
 	@mkdir -p $(dir $@)
-	$(COMPILE) -c $< -o $@
+	@if [ ! "$(dir $^)" = "./" ]; then cp -u libft.h $(dir $^); cp -u ft_printf.h $(dir $^); fi
+	@$(COMPILE) -c $< -o $@
 
 # Libft
 libft:
@@ -59,8 +61,9 @@ fclean:
 	@rm -rf ./bin
 	$(info Removing libft library)
 	@rm -rf ./libft ./libft.a ./libft.h
-	$(info Removing .h files from test directory)
+	$(info Removing .h files from directories)
 	@rm -f ./tests/libft.h ./tests/ft_printf.h
+	@rm -f ./tools/libft.h ./tools/ft_printf.h
 	$(info Removing executables from root directory)
 	@rm -f ./run
 	$(info Project now clean.)
