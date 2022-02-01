@@ -1,6 +1,7 @@
 # Compiler options
 CC				=	gcc
-FLAGS			=	-Wall -Wextra # ! TODO -Werror
+FLAGS			=	-Wall -Wextra -Werror
+# FLAGS			=	-Wall -Wextra # ! TODO -Werror
 LIB_CC			=	ar -crT
 COMPILE			=	$(CC) $(FLAGS)
 LIB_NAME		=	libftprintf.a
@@ -59,7 +60,7 @@ setup_run: $(LIB_NAME) libft.h
 
 run_%: setup_run tests/%_test.c
 	@echo -n "${TITLE}Compiling test${NC} using main form ${YELLOW}$(word 2, $^)${NC}"
-	@$(COMPILE) $(word 2, $^) $(LIB_NAME) -o run
+	@$(COMPILE) $(word 2, $^) $(LIB_NAME) -o run -fsanitize=address
 	@echo " ${GREEN}[OK]${NC}"
 
 # Clean logic
