@@ -16,8 +16,9 @@ LBLUE			=	\033[1;34m
 TITLE			=	\033[38;5;33m
 
 # Binaries variables
-TOOLS_SRC		=	tools/ft_hasany.c \
-					tools/ft_get_argc.c
+TOOLS_SRC		=	tools/ft_get_argc.c \
+					tools/ft_hasany.c \
+					tools/ft_putnstr.c
 
 ROOT_SRC		=	ft_printf.c
 
