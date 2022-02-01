@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_argc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jre-gonz <jre-gonz@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:19:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/01/31 13:53:12 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/01 09:06:27 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ int	ft_get_argc(const char *format)
 	c = 0;
 	while (format[i])
 	{
-		if (ft_hasany(FLAGS_CONV, format[i]))
+		if (ft_hasany(FLAGS_CONV, format[i++]))
+		{
 			c++;
-		i++;
+			i++;
+		}
 	}
 	return (c);
 }
