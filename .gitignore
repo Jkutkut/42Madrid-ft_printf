@@ -1,4 +1,4 @@
 bin
 libft*
-tests/*.h
+*/*.h
 run
