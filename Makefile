@@ -6,7 +6,7 @@ COMPILE			=	$(CC) $(FLAGS)
 LIB_NAME		=	libftprintf.a
 
 # Colors:
-NC				=	\033[0m # No Color
+NC				=	\033[0m
 RED				=	\033[0;31m
 GREEN			=	\033[0;32m
 LRED			=	\033[1;31m
@@ -57,8 +57,9 @@ setup_run: $(LIB_NAME) libft.h
 	@cp -f ft_printf.h tests/
 
 run_%: setup_run tests/%_test.c
-	@echo "${TITLE}Compiling test${NC} using main form ${YELLOW}$(word 2, $^)${NC}"
-	$(COMPILE) $(word 2, $^) $(LIB_NAME) -o run
+	@echo -n "${TITLE}Compiling test${NC} using main form ${YELLOW}$(word 2, $^)${NC}"
+	@$(COMPILE) $(word 2, $^) $(LIB_NAME) -o run
+	@echo " ${GREEN}[OK]${NC}"
 
 # Clean logic
 .PHONY: re fclean
