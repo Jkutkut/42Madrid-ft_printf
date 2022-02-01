@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jre-gonz <jre-gonz@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:21:29 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/01/31 13:19:12 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/01 12:28:03 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 
 int		ft_printf(const char *, ...);
 int		ft_get_argc(const char *format);
+
+// Tools
 int		ft_hasany(const char *str, const char c);
+void	ft_putnstr(char *str, int n);
+
 #endif
 
