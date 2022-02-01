@@ -5,6 +5,16 @@ LIB_CC			=	ar -crT
 COMPILE			=	$(CC) $(FLAGS)
 LIB_NAME		=	libftprintf.a
 
+# Colors:
+NC				=	\033[0m # No Color
+RED				=	\033[0;31m
+GREEN			=	\033[0;32m
+LRED			=	\033[1;31m
+LGREEN			=	\033[1;32m
+YELLOW			=	\033[1;33m
+LBLUE			=	\033[1;34m
+TITLE			=	\033[38;5;33m
+
 # Binaries variables
 TOOLS_SRC		=	tools/ft_hasany.c \
 					tools/ft_get_argc.c
@@ -20,22 +30,23 @@ MANDATORY		=	${MANDATORY_SRC:%.c=bin/%.o}
 all: $(LIB_NAME)
 
 $(LIB_NAME): libft.a $(MANDATORY) 
-	$(info Compiling mandatory into $(LIB_NAME))
+	@echo "Compiling ${YELLOW}mandatory${NC} into ${TITLE}$(LIB_NAME)${NC}"
 	@$(LIB_CC) $(LIB_NAME) $^
 
 bin/%.o: %.c
-	@echo "- Compiling $< -> $@"
+	@echo -n "- ${LBLUE}Compiling${NC} $< -> $@"
 	@mkdir -p $(dir $@)
 	@if [ ! "$(dir $^)" = "./" ]; then cp -u libft.h $(dir $^); cp -u ft_printf.h $(dir $^); fi
 	@$(COMPILE) -c $< -o $@
+	@echo " ${GREEN}[OK]${NC}"
 
 # Libft
 libft:
-	$(info Obtaining latest version of Libft)
+	@echo "Obtaining latest version of ${GREEN}Libft${NC} from ${LBLUE}GitHub${NC}..."
 	@if [ ! -d libft ]; then git clone https://github.com/Jkutkut/42Madrid-Libft.git libft; fi
 
 libft.a: libft
-	$(info Compiling library and moving libft.a, libft.h to the root directory)
+	@echo "\n${TITLE}Compiling library${NC} and ${YELLOW}moving libft.a, libft.h to the root directory${NC}"
 	make bonus -C ./libft
 	@cp ./libft/libft.a .
 	@cp ./libft/libft.h .
@@ -46,7 +57,7 @@ setup_run: $(LIB_NAME) libft.h
 	@cp -f ft_printf.h tests/
 
 run_%: setup_run tests/%_test.c
-	@echo "Compiling test using main form $(word 2, $^)"
+	@echo "${TITLE}Compiling test${NC} using main form ${YELLOW}$(word 2, $^)${NC}"
 	$(COMPILE) $(word 2, $^) $(LIB_NAME) -o run
 
 # Clean logic
@@ -54,16 +65,19 @@ run_%: setup_run tests/%_test.c
 
 re: fclean all
 
-fclean:
-	$(info Removing $(LIB_NAME))
+fclean: clean
+
+clean:
+	@echo "${TITLE}Cleaning${NC} ${YELLOW}Project${NC}"
+	@echo "- ${RED}Removing${NC} $(LIB_NAME)"
 	@rm -f $(LIB_NAME)
-	$(info Removing binary directory)
+	@echo "- ${RED}Removing binary directory${NC}"
 	@rm -rf ./bin
-	$(info Removing libft library)
+	@echo "- ${RED}Removing libft${NC} library"
 	@rm -rf ./libft ./libft.a ./libft.h
-	$(info Removing .h files from directories)
+	@echo "- ${RED}Removing .h${NC} files from ${RED}directories${NC}"
 	@rm -f ./tests/libft.h ./tests/ft_printf.h
 	@rm -f ./tools/libft.h ./tools/ft_printf.h
-	$(info Removing executables from root directory)
+	@echo "- ${RED}Removing executables${NC} from root directory"
 	@rm -f ./run
-	$(info Project now clean.)
+	@echo "Project now ${GREEN}clean.${NC}\n"
