@@ -6,16 +6,32 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:19:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/01 13:55:04 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/02 09:39:55 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
+int	ft_print_argv(char **format, va_list lst)
+{
+	int	i;
+	char	*str;
+
+	i = -1;
+	if (ft_strncmp(*format, "%s", 2) == 0)
+	{
+		*format += 2;
+		str = va_arg(lst, char *);
+		i = ft_strlen(str);
+		ft_putnstr(str, i);
+	}
+	return (i);
+}
+
 int	ft_print_until_format(char **format)
 {
-	size_t	i;
+	int	i;
 	char	*str;
 
 	if (format == NULL || *format == NULL)
@@ -39,12 +55,18 @@ int	ft_format_printf(char *format, va_list lst)
 	while (*format)
 	{
 		j = ft_print_until_format(&format);
-		if (j <= 0)
+		if (j < 0)
 			return (i);
 		i += j;
 		if (*format == '\0')
 			return (i);
-		printf("%s", va_arg(lst, char *));
+		j = ft_print_argv(&format, lst);
+		if (j < 0)
+		{
+			ft_putstr_fd("not implemented", 15);
+			break;
+		}
+		i += j;
 	}
 	return (i);
 }
