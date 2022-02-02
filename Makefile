@@ -36,9 +36,9 @@ $(LIB_NAME): libft.a $(MANDATORY)
 	@$(LIB_CC) $(LIB_NAME) $^
 
 bin/%.o: %.c
-	@echo -n "- ${LBLUE}Compiling${NC} $< -> $@"
+	@echo "- ${LBLUE}Compiling${NC} $< -> $@\c"
 	@mkdir -p $(dir $@)
-	@if [ ! "$(dir $^)" = "./" ]; then cp -u libft.h $(dir $^); cp -u ft_printf.h $(dir $^); fi
+	@if [ ! "$(dir $^)" = "./" ]; then cp -f libft.h $(dir $^); cp -f ft_printf.h $(dir $^); fi
 	@$(COMPILE) -c $< -o $@
 	@echo " ${GREEN}[OK]${NC}"
 
@@ -59,7 +59,7 @@ setup_run: $(LIB_NAME) libft.h
 	@cp -f ft_printf.h tests/
 
 run_%: setup_run tests/%_test.c
-	@echo -n "${TITLE}Compiling test${NC} using main form ${YELLOW}$(word 2, $^)${NC}"
+	@echo "${TITLE}Compiling test${NC} using main form ${YELLOW}$(word 2, $^)${NC}\c"
 	@$(COMPILE) $(word 2, $^) $(LIB_NAME) -o run -fsanitize=address
 	@echo " ${GREEN}[OK]${NC}"
 
