@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 09:28:19 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/01 10:46:09 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/02 09:55:08 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	printf("%s---------------------------------%s\n", YELLOW, NC);
 	ft_printf("%s %s %s\n", "hola", "caracola", "que tal?");
 	printf("%s---------------------------------%s\n", YELLOW, NC);
-	ft_printf("hola caracola\n", "hola", "caracola", 123);
+	ft_printf("%c%c%c%c\n", 'h', 'o', 'l', 'a');
 	printf("%s---------------------------------%s\n", YELLOW, NC);
 	return (0);
 }

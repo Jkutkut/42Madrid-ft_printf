@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:19:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/02 09:39:55 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/02 09:54:45 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ int	ft_print_argv(char **format, va_list lst)
 		str = va_arg(lst, char *);
 		i = ft_strlen(str);
 		ft_putnstr(str, i);
+	}
+	else if (ft_strncmp(*format, "%c", 2) == 0)
+	{
+		*format += 2;
+		i = 1;
+		ft_putchar_fd(va_arg(lst, int), 1);
 	}
 	return (i);
 }
