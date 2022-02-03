@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:21:29 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/01 13:17:20 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:03:26 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		ft_get_argc(const char *format);
 // Tools
 int		ft_hasany(const char *str, const char c);
 void	ft_putnstr(const char *str, int n);
+char	*ft_super_itoa(long int n);
 
 #endif
 
