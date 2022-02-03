@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:19:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/02 19:10:54 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:06:09 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,15 @@ int	ft_print_argv(char **format, va_list lst)
 	else if (ft_strncmp(*format, "%i", 2) == 0)
 	{
 		*format += 2;
-		str = ft_itoa(va_arg(lst, int));
+		str = ft_super_itoa(va_arg(lst, int));
+		ft_putstr_fd(str, 1);
+		i = ft_strlen(str);
+		free(str);
+	}
+	else if (ft_strncmp(*format, "%d", 2) == 0)
+	{
+		*format += 2;
+		str = ft_super_itoa(va_arg(lst, unsigned int));
 		ft_putstr_fd(str, 1);
 		i = ft_strlen(str);
 		free(str);
