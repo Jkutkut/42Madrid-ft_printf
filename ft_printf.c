@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:19:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/02 16:50:20 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/02 19:10:54 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ int	ft_print_argv(char **format, va_list lst)
 		i = 1;
 		ft_putchar_fd(va_arg(lst, int), 1);
 	}
-	else if (ft_strncmp(*format, "%i", 2))
+	else if (ft_strncmp(*format, "%i", 2) == 0)
 	{
 		*format += 2;
 		str = ft_itoa(va_arg(lst, int));
 		ft_putstr_fd(str, 1);
+		i = ft_strlen(str);
 		free(str);
 	}
 	return (i);
@@ -76,7 +77,7 @@ int	ft_format_printf(char *format, va_list lst)
 		j = ft_print_argv(&format, lst);
 		if (j < 0)
 		{
-			ft_putstr_fd("not implemented", 15);
+			ft_putstr_fd("not implemented", 1);
 			break;
 		}
 		i += j;
