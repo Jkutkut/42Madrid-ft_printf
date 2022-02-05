@@ -24,7 +24,8 @@ LIBFT_LIB		=	libft/libft.a
 TOOLS_SRC		=	tools/ft_get_argc.c \
 					tools/ft_hasany.c \
 					tools/ft_putnstr.c \
-					tools/ft_super_itoa.c
+					tools/ft_super_itoa.c \
+					tools/ft_itoa_base.c
 
 ROOT_SRC		=	ft_printf.c
 
