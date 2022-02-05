@@ -18,3 +18,4 @@ https://github.com/t0mm4rx/ftprintfdestructor.git
 	- no tiene "# +", "0."
 	- tiene -, minWidth
 
+- i
