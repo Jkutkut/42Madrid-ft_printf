@@ -23,9 +23,9 @@ LIBFT_LIB		=	libft/libft.a
 
 TOOLS_SRC		=	tools/ft_get_argc.c \
 					tools/ft_hasany.c \
-					tools/ft_putnstr.c \
-					tools/ft_super_itoa.c \
-					tools/ft_itoa_base.c
+					tools/ft_itoa_base.c \
+					tools/ft_nbrlen.c \
+					tools/ft_putnstr.c
 
 ROOT_SRC		=	ft_printf.c
 
@@ -59,12 +59,11 @@ $(LIBFT_LIB): libft
 	@cp libft/libft.h .
 
 # Tests
-setup_run: $(LIB_NAME)
+run_%: tests/%_test.c $(LIB_NAME)
 	@cp -f ft_printf.h tests/
-
-run_%: setup_run tests/%_test.c $(LIB_NAME)
-	@echo "${TITLE}Compiling test${NC} using main form ${YELLOW}$(word 2, $^)${NC}\c"
-	@$(COMPILE) $(word 2, $^) $(LIB_NAME) -o run -fsanitize=address
+	@cp -f libft.h tests/
+	@echo "${TITLE}Compiling test${NC} using main form ${YELLOW}$(word 1, $^)${NC}\c"
+	@$(COMPILE) $(word 1, $^) $(LIB_NAME) -o run -fsanitize=address
 	@echo " ${GREEN}[OK]${NC}"
 
 # Clean logic
