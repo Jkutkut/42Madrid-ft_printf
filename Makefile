@@ -2,9 +2,11 @@
 CC				=	gcc
 FLAGS			=	-Wall -Wextra -Werror
 # FLAGS			=	-Wall -Wextra # ! TODO -Werror
-LIB_CC			=	ar cr
+# LIB_CC			=	ar crT # Mac OS
+LIB_CC			=	ar -crT # Linux
 COMPILE			=	$(CC) $(FLAGS)
 LIB_NAME		=	libftprintf.a
+HEADER			=	ft_printf.h
 
 # Colors:
 NC				=	\033[0m
@@ -32,7 +34,7 @@ MANDATORY		=	${MANDATORY_SRC:%.c=bin/%.o}
 # Triggers
 all: $(LIB_NAME)
 
-$(LIB_NAME): libft.a $(MANDATORY) 
+$(LIB_NAME): libft.a $(MANDATORY) $(HEADER)
 	@echo "Compiling ${YELLOW}mandatory${NC} into ${TITLE}$(LIB_NAME)${NC}"
 	@$(LIB_CC) $(LIB_NAME) $^
 
@@ -59,13 +61,13 @@ setup_run: $(LIB_NAME) libft.h
 	@cp -f libft.h tests/
 	@cp -f ft_printf.h tests/
 
-run_%: setup_run tests/%_test.c libft.a $(LIB_NAME)
+run_%: setup_run tests/%_test.c $(LIB_NAME)
 	@echo "${TITLE}Compiling test${NC} using main form ${YELLOW}$(word 2, $^)${NC}\c"
 	@$(COMPILE) $(word 2, $^) $(LIB_NAME) -o run -fsanitize=address
 	@echo " ${GREEN}[OK]${NC}"
 
 # Clean logic
-.PHONY: re fclean
+.PHONY: re fclean libft
 
 re: fclean all
 
