@@ -6,29 +6,13 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 12:59:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/03 13:02:30 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/05 22:51:13 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <stdlib.h>
 
-static size_t	ft_ndigits(int n)
-{
-	size_t	order;
-
-	if (!n)
-		return (1);
-	order = 0;
-	if (n < 0)
-		order++;
-	while (n != 0)
-	{
-		order++;
-		n /= 10;
-	}
-	return (order);
-}
+size_t	ft_nbrlen(size_t n, size_t base_len)
 
 char	*ft_super_itoa(long int n)
 {
@@ -36,7 +20,7 @@ char	*ft_super_itoa(long int n)
 	char	d;
 	char	*str;
 
-	order = ft_ndigits(n);
+	order = ft_nbrlen(n, 10);
 	str = (char *) malloc(sizeof(char) * (order + 1));
 	if (str == NULL)
 		return (str);
