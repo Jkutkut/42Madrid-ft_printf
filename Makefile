@@ -19,6 +19,8 @@ LBLUE			=	\033[1;34m
 TITLE			=	\033[38;5;33m
 
 # Binaries variables
+LIBFT_LIB		=	libft/libft.a
+
 TOOLS_SRC		=	tools/ft_get_argc.c \
 					tools/ft_hasany.c \
 					tools/ft_putnstr.c \
@@ -34,7 +36,7 @@ MANDATORY		=	${MANDATORY_SRC:%.c=bin/%.o}
 # Triggers
 all: $(LIB_NAME)
 
-$(LIB_NAME): libft.a $(MANDATORY) $(HEADER)
+$(LIB_NAME): $(LIBFT_LIB) $(MANDATORY) $(HEADER)
 	@echo "Compiling ${YELLOW}mandatory${NC} into ${TITLE}$(LIB_NAME)${NC}"
 	@$(LIB_CC) $(LIB_NAME) $^
 
@@ -50,15 +52,13 @@ libft:
 	@echo "Obtaining latest version of ${GREEN}Libft${NC} from ${LBLUE}GitHub${NC}..."
 	@if [ ! -d libft ]; then git clone https://github.com/Jkutkut/42Madrid-Libft.git libft; fi
 
-libft.a: libft
-	@echo "\n${TITLE}Compiling library${NC} and ${YELLOW}moving libft.a, libft.h to the root directory${NC}"
+$(LIBFT_LIB): libft
+	@echo "\n${TITLE}Compiling library libft${NC}"
 	make bonus -C ./libft
-	@cp ./libft/libft.a .
-	@cp ./libft/libft.h .
+	@cp libft/libft.h .
 
 # Tests
-setup_run: $(LIB_NAME) libft.h
-	@cp -f libft.h tests/
+setup_run: $(LIB_NAME)
 	@cp -f ft_printf.h tests/
 
 run_%: setup_run tests/%_test.c $(LIB_NAME)
@@ -80,7 +80,7 @@ clean:
 	@echo "- ${RED}Removing binary directory${NC}"
 	@rm -rf ./bin
 	@echo "- ${RED}Removing libft${NC} library"
-	@rm -rf ./libft ./libft.a ./libft.h
+	@rm -rf ./libft ./libft.h
 	@echo "- ${RED}Removing .h${NC} files from ${RED}directories${NC}"
 	@rm -f ./tests/libft.h ./tests/ft_printf.h
 	@rm -f ./tools/libft.h ./tools/ft_printf.h

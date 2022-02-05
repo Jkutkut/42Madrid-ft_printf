@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:21:29 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/05 11:32:09 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/05 12:02:51 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <stdio.h> // ! TODO DEBUG
 
-#include "stdlib.h"
+#include "libft.h"
 
 # define FLAGS_CONV "%"
 //# define FLAGS_CONV "%# +"
