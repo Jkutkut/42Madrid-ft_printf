@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:19:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/06 22:03:15 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/06 22:14:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,26 @@ int	ft_print_argv(char **format, va_list lst)
 	char	*str;
 
 	i = -1;
-	if (ft_strncmp(*format, "%s", 2) == 0)
+	if (ft_strncmp(*format, "%c", 2) == 0)
+	{
+		*format += 2;
+		i = 1;
+		ft_putchar_fd(va_arg(lst, int), 1);
+	}
+	else if (ft_strncmp(*format, "%s", 2) == 0)
 	{
 		*format += 2;
 		str = va_arg(lst, char *);
 		i = ft_strlen(str);
 		ft_putnstr(str, i);
 	}
-	else if (ft_strncmp(*format, "%c", 2) == 0)
+	else if (ft_strncmp(*format, "%p", 2) == 0)
 	{
 		*format += 2;
-		i = 1;
-		ft_putchar_fd(va_arg(lst, int), 1);
-	}
-	else if (ft_strncmp(*format, "%i", 2) == 0)
-	{
-		*format += 2;
-		str = ft_itoa_base(va_arg(lst, int), DECIMAL);
-		ft_putstr_fd(str, 1);
-		i = ft_strlen(str);
+		str = ft_itoa_base(va_arg(lst, unsigned long), HEXADECIMAL);
+		i = ft_strlen(str) + 2;
+		ft_putstr("0x");
+		ft_putnstr(str, i);
 		free(str);
 	}
 	else if (ft_strncmp(*format, "%d", 2) == 0)
@@ -50,6 +51,47 @@ int	ft_print_argv(char **format, va_list lst)
 		i = ft_strlen(str);
 		free(str);
 	}
+	else if (ft_strncmp(*format, "%i", 2) == 0)
+	{
+		*format += 2;
+		str = ft_itoa_base(va_arg(lst, int), DECIMAL);
+		ft_putstr_fd(str, 1);
+		i = ft_strlen(str);
+		free(str);
+	}
+	else if (ft_strncmp(*format, "%u", 2) == 0)
+	{
+		*format += 2;
+		str = ft_itoa_base(va_arg(lst, unsigned long), DECIMAL);
+		ft_putstr_fd(str, 1);
+		i = ft_strlen(str);
+		free(str);
+	}
+	else if (ft_strncmp(*format, "%%", 2) == 0)
+	{
+		*format += 2;
+		i += 1;
+		ft_putchar_fd('%', 1);
+	}
+	else // %x %X
+	{
+		*format += 2;
+		str = ft_itoa_base(va_arg(lst, unsigned long), HEXADECIMAL);
+		i = ft_strlen(str) + 2;
+		ft_putstr("0x");
+		if (ft_strncmp(*(format - 1), "X", 2) == 0)
+		{
+			size_t	j;
+
+			j = 0;
+			while (str[j])
+			{
+				str[j] = ft_toupper(str[j]);
+				j++;
+			}
+		}
+	}
+	
 	return (i);
 }
 
