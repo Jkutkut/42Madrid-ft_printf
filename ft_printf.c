@@ -6,11 +6,14 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:19:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/05 11:47:25 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/06 22:03:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+#define DECIMAL "0123456789"
+#define HEXADECIMAL "0123456789abcdef"
 
 int	ft_print_argv(char **format, va_list lst)
 {
@@ -34,7 +37,7 @@ int	ft_print_argv(char **format, va_list lst)
 	else if (ft_strncmp(*format, "%i", 2) == 0)
 	{
 		*format += 2;
-		str = ft_super_itoa(va_arg(lst, int));
+		str = ft_itoa_base(va_arg(lst, int), DECIMAL);
 		ft_putstr_fd(str, 1);
 		i = ft_strlen(str);
 		free(str);
@@ -42,7 +45,7 @@ int	ft_print_argv(char **format, va_list lst)
 	else if (ft_strncmp(*format, "%d", 2) == 0)
 	{
 		*format += 2;
-		str = ft_super_itoa(va_arg(lst, unsigned int));
+		str = ft_itoa_base(va_arg(lst, long), DECIMAL);
 		ft_putstr_fd(str, 1);
 		i = ft_strlen(str);
 		free(str);
