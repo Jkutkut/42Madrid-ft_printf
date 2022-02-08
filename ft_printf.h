@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 08:21:29 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/05 23:33:56 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:43:33 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ int		ft_hasany(const char *str, const char c);
 char	*ft_itoa_base(ssize_t nbr, char *base);
 size_t	ft_nbrlen(ssize_t n, size_t base_len);
 void	ft_putnstr(const char *str, int n);
+
+typedef struct	s_printf_tk
+{
+	char	type;
+	char	left_padding;
+	char	fill_type;
+	char	
+	char	precision;
+}	t_printf_tk;
 
 #endif
 

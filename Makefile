@@ -2,8 +2,8 @@
 CC				=	gcc
 FLAGS			=	-Wall -Wextra -Werror
 # FLAGS			=	-Wall -Wextra # ! TODO -Werror
-# LIB_CC			=	ar crT # Mac OS
-LIB_CC			=	ar -crT # Linux
+LIB_CC			=	ar crT # Mac OS
+# LIB_CC			=	ar -crT # Linux
 COMPILE			=	$(CC) $(FLAGS)
 LIB_NAME		=	libftprintf.a
 HEADER			=	ft_printf.h
