@@ -9,13 +9,8 @@ LBLUE		=	\033[1;34m
 TITLE		=	\033[38;5;33m
 
 # Compile variables
-CC			=	ar
-FLAGS		=	rcT
-LIB_CC		=	$(CC) $(FLAGS)
-
-CC_T		=	gcc
-FLAGS_T		=	-Wall -Wextra -Werror
-COMPILE_T	=	$(CC_T) $(FLAGS_T)
+LIB_CC		=	ar rcT
+CC			=	gcc -Wall -Wextra -Werror
 
 
 # Code variables
@@ -23,6 +18,7 @@ NAME		=	libftprintf.a
 
 SRCS		=	ft_printf.c
 
+# OBJS		=	${SRCS:.c=.o}
 OBJS		=	${SRCS:%.c=bin/%.o}
 
 
@@ -39,7 +35,7 @@ bin/%.o: %.c
 	@echo "- ${LBLUE}Compiling${NC} $< -> $@\c"
 	@mkdir -p $(dir $@)
 	@if [ ! "$(dir $^)" = "./" ]; then cp -f libft.h $(dir $^); cp -f ft_printf.h $(dir $^); fi
-	@$(CC_T) -c $< -o $@
+	@$(CC) -c $< -o $@
 	@echo " ${GREEN}[OK]${NC}"
 
 fclean: clean
@@ -49,5 +45,13 @@ fclean: clean
 
 clean:
 	@echo "${RED}Cleaning ${NC}binaries\c"
-	@rm -rf bin
+	@rm -rf $(OBJS)
+	@# rm -rf bin
 	@echo "${LGREEN} [OK]${NC}"
+
+.PHONY: all re fclean clean
+
+# TODO Debug
+libft:
+	@echo "Obtaining latest version of ${GREEN}Libft${NC} from ${LBLUE}GitHub${NC}..."
+	@if [ ! -d libft ]; then git clone https://github.com/Jkutkut/42Madrid-Libft.git libft; fi
