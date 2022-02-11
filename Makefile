@@ -1,6 +1,6 @@
 # Colors:
 NC			=	\033[0m
-RED			=	\033[0;31m
+LRED			=	\033[0;31m
 GREEN		=	\033[0;32m
 LRED		=	\033[1;31m
 LGREEN		=	\033[1;32m
@@ -32,21 +32,21 @@ $(NAME):	$(OBJS)
 	@echo "${LGREEN}[OK]${NC}"
 
 bin/%.o: %.c
-	@echo "- ${LBLUE}Compiling${NC} $< -> $@\c"
+	@echo "- ${TITLE}Compiling${NC} $< -> $@\c"
 	@mkdir -p $(dir $@)
 	@if [ ! "$(dir $^)" = "./" ]; then cp -f libft.h $(dir $^); cp -f ft_printf.h $(dir $^); fi
 	@$(CC) -c $< -o $@
 	@echo " ${GREEN}[OK]${NC}"
 
 fclean: clean
-	@echo "${RED}Cleaning ${NC}$(NAME) \c"
+	@echo "${LRED}Cleaning ${NC}$(NAME) \c"
 	@rm -f $(NAME)
 	@echo "${LGREEN}[OK]${NC}"
 
 clean:
-	@echo "${RED}Cleaning ${NC}binaries\c"
-	@rm -rf $(OBJS)
-	@# rm -rf bin
+	@echo "${LRED}Cleaning ${NC}binaries\c"
+	@# rm -rf $(OBJS)
+	@rm -rf bin
 	@echo "${LGREEN} [OK]${NC}"
 
 .PHONY: all re fclean clean
