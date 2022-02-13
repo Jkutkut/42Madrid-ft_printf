@@ -6,12 +6,12 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 09:28:19 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 16:48:58 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 18:01:53 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/ft_printf.h"
-
+#include <limits.h>
 #include "colors.h"
 
 int	main(void)
@@ -27,6 +27,25 @@ int	main(void)
 	ft_printf("%i%c%i%c\n", 104, 'o', -108, 'a');
 	printf("%s---------------------------------%s\n", YELLOW, NC);
 	ft_printf("%d %d %d %d %d\n", 100, 100, 256, -1, -123);
+	printf("%s---------------------------------%s\n", YELLOW, NC);
+	char *str1 = "hola";
+	char *str2 = "hola que tal";
+	char *str3 = "hola que tal estas";
+	printf("%p %p %p\n", str1, str2, str3);
+	ft_printf("%p %p %p\n", str1, str2, str3);
+	printf("%s---------------------------------%s\n", YELLOW, NC);
+	printf("%p -- ", (void *) 0);
+	fflush(stdout);
+	ft_printf("%p\n", 0);
+
+	printf("%p %p -- ", (void *) LONG_MIN, (void *) LONG_MAX);
+	fflush(stdout);
+	ft_printf("%p %p\n", LONG_MIN, LONG_MAX);
+
+	printf("%p %p -- ", (void *) ULONG_MAX, (void *) -ULONG_MAX);
+	fflush(stdout);
+	ft_printf("%p %p\n", ULONG_MAX, -ULONG_MAX);
+	
 	printf("%s---------------------------------%s\n", YELLOW, NC);
 	return (0);
 }
