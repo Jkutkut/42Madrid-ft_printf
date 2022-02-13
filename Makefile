@@ -16,10 +16,12 @@ CC			=	gcc -Wall -Wextra -Werror
 # Code variables
 NAME		=	libftprintf.a
 
-SRCS		=	ft_printf.c
+SRCS		=	src/ft_printf.c \
+				src/ft_strdup.c \
+				src/ft_strlcpy.c \
+				src/ft_strlen.c
 
-# OBJS		=	${SRCS:.c=.o}
-OBJS		=	${SRCS:%.c=bin/%.o}
+OBJS		=	${SRCS:src/%.c=bin/%.o}
 
 
 # Makefile logic
@@ -31,10 +33,9 @@ $(NAME):	$(OBJS)
 	@$(LIB_CC) $(NAME) $(OBJS)
 	@echo "${LGREEN}[OK]${NC}"
 
-bin/%.o: %.c
+bin/%.o: src/%.c
 	@echo "- ${TITLE}Compiling${NC} $< -> $@\c"
 	@mkdir -p $(dir $@)
-	@if [ ! "$(dir $^)" = "./" ]; then cp -f libft.h $(dir $^); cp -f ft_printf.h $(dir $^); fi
 	@$(CC) -c $< -o $@
 	@echo " ${GREEN}[OK]${NC}"
 
