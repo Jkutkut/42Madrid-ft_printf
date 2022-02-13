@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:07:03 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/02/13 15:19:40 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 15:30:52 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ int	ft_print_argv(char **format, va_list lst)
 		*format += 2;
 		str = va_arg(lst, char *);
 		i = ft_strlen(str);
-		ft_putnstr(str, i);
+		write(1, str, i);
 	}
 	else if (ft_strncmp(*format, "%p", 2) == 0)
 	{
 		*format += 2;
 		str = ft_itoa_base(va_arg(lst, unsigned long), HEXADECIMAL);
 		i = ft_strlen(str) + 2;
-		ft_putnstr("0x", 2);
-		ft_putnstr(str, i);
+		write(1, "0x", 2);
+		write(1, str, i);
 		free(str);
 	}
 	else if (ft_strncmp(*format, "%d", 2) == 0)
