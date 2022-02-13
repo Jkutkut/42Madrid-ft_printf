@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:10:35 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 21:58:55 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 22:03:17 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ size_t	ft_nbrlen(ssize_t n, ssize_t base_len);
 int		ft_printf(const char *, ...);
 size_t	ft_put_pointer_fd(unsigned long p, int fd);
 size_t	ft_putchar_fd(char s, int fd);
-// void	ft_putnbr_fd(int n, int fd);
 size_t	ft_putstr_fd(char *s, int fd);
 char	*ft_strdup(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
