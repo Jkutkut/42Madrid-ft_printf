@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 21:44:53 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 22:03:40 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 23:00:42 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char	*ft_ptoa(unsigned long nbr, char *base)
 		str[order] = '0';
 	while (nbr != 0)
 	{
-		str[order--] = base[ nbr % b_len];
+		str[order--] = base[nbr % b_len];
 		nbr /= b_len;
 	}
 	return (str);
@@ -60,9 +60,9 @@ static char	*ft_ptoa(unsigned long nbr, char *base)
 
 size_t	ft_put_pointer_fd(unsigned long p, int fd)
 {
-	char *str;
+	char	*str;
 	size_t	i;
-	
+
 	str = ft_ptoa(p, HEXADECIMAL);
 	if (*str == '0')
 		i = ft_putstr_fd("(nil)", fd);
