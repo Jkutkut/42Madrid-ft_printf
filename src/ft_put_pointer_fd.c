@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 21:44:53 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 21:59:22 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 22:03:40 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #endif
 
 size_t	ft_strlen(const char *s);
+size_t	ft_putstr_fd(char *s, int fd);
 
 static size_t	ft_plen(unsigned long n, long base_len)
 {
