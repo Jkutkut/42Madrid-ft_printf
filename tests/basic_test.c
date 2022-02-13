@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 09:28:19 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 18:01:53 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 19:16:55 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,12 @@ int	main(void)
 	printf("%p %p -- ", (void *) ULONG_MAX, (void *) -ULONG_MAX);
 	fflush(stdout);
 	ft_printf("%p %p\n", ULONG_MAX, -ULONG_MAX);
-	
+	printf("%s---------------------------------%s\n", YELLOW, NC);
+	printf("%x %x %x\n", 0, 1, -1);
+	ft_printf("%x %x %x\n", 0, 1, -1);
+	printf("%s---------------------------------%s\n", YELLOW, NC);
+	printf("%x %x %x\n", LONG_MAX, LONG_MIN, ULONG_MAX);
+	ft_printf("%x %x %x\n", LONG_MAX, LONG_MIN, ULONG_MAX);
 	printf("%s---------------------------------%s\n", YELLOW, NC);
 	return (0);
 }
