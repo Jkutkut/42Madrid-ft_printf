@@ -27,7 +27,7 @@ SRCS		=	src/ft_itoa_base.c \
 				src/ft_nbrlen.c \
 				src/ft_strdup.c \
 				src/ft_strlen.c \
-				src/ft_toupper.c
+				src/ft_strtoupper.c
 
 OBJS		=	${SRCS:src/%.c=bin/%.o}
 
