@@ -16,10 +16,18 @@ CC			=	gcc -Wall -Wextra -Werror
 # Code variables
 NAME		=	libftprintf.a
 
-SRCS		=	src/ft_printf.c \
-				src/ft_strdup.c \
+SRCS		=	src/ft_itoa_base.c \
+				src/ft_printf.c \
+				src/ft_putchar_fd.c \
+				src/ft_putstr_fd.c \
 				src/ft_strlcpy.c \
-				src/ft_strlen.c
+				src/ft_strncmp.c \
+				src/ft_nbrlen.c \
+				src/ft_printf.h \
+				src/ft_putnbr_fd.c \
+				src/ft_strdup.c \
+				src/ft_strlen.c \
+				src/ft_toupper.c
 
 OBJS		=	${SRCS:src/%.c=bin/%.o}
 
