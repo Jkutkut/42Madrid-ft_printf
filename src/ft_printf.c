@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:07:03 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/02/13 20:55:36 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 21:19:11 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,54 @@
 #define DECIMAL "0123456789"
 #define HEXADECIMAL "0123456789abcdef"
 
+size_t	ft_nbrlenv2(unsigned long long int n, ssize_t base_len)
+{
+	size_t	order;
+
+	if (base_len <= 0)
+		return (0);
+	if (!n)
+		return (1);
+	order = 0;
+	// if (n < 0)
+	// 	order++;
+	while (n != 0)
+	{
+		order++;
+		n /= base_len;
+	}
+	return (order);
+}
+
+char	*ft_itoa_basev2(unsigned long long int nbr, char *base)
+{
+	ssize_t	b_len;
+	size_t	order;
+	char	*str;
+	char	sign;
+
+	b_len = ft_strlen(base);
+	order = ft_nbrlenv2(nbr, b_len);
+	str = (char *) malloc(sizeof(char) * (order + 1));
+	if (str == NULL)
+		return (str);
+	str[order--] = '\0';
+	sign = 1;
+	// if (nbr < 0)
+	// {
+	// 	sign = -1;
+	// 	str[0] = '-';
+	// }
+	if (nbr == 0)
+		str[order] = '0';
+	while (nbr != 0)
+	{
+		str[order--] = base[((ssize_t) nbr % b_len) * sign];
+		nbr /= b_len;
+	}
+	return (str);
+}
+
 int	ft_print_argv(char **format, va_list lst)
 {
 	int		i;
@@ -22,22 +70,20 @@ int	ft_print_argv(char **format, va_list lst)
 
 	i = -1;
 	if (ft_strncmp(*format, "%c", 2) == 0)
-	{
-		i = 1;
-		ft_putchar_fd(va_arg(lst, int), 1);
-	}
+		i = ft_putchar_fd(va_arg(lst, int), 1);
 	else if (ft_strncmp(*format, "%s", 2) == 0)
-	{
 		i = ft_putstr_fd(va_arg(lst, char *), 1);
-	}
 	else if (ft_strncmp(*format, "%p", 2) == 0)
 	{
-		str = ft_itoa_base(va_arg(lst, unsigned int), HEXADECIMAL);
+		str = ft_itoa_basev2(va_arg(lst, unsigned long long), HEXADECIMAL);
 		if (*str == '0')
 			i = ft_putstr_fd("(nil)", 1);
 		else
 		{
 			i = ft_putstr_fd("0x", 1);
+			// if (*str == '-')
+			// 	i += ft_putstr_fd(str + 1, 1);
+			// else
 			i += ft_putstr_fd(str, 1);
 		}		
 		free(str);
@@ -56,13 +102,11 @@ int	ft_print_argv(char **format, va_list lst)
 	}
 	else if (ft_strncmp(*format, "%%", 2) == 0)
 	{
-		i = 1;
-		ft_putchar_fd('%', 1);
+		i = ft_putchar_fd('%', 1);
 	}
 	else // %x %X
 	{
 		str = ft_itoa_base(va_arg(lst, unsigned int), HEXADECIMAL);
-		// str = ft_itoa_base(va_arg(lst, unsigned long), HEXADECIMAL);
 		if (ft_strncmp(*format, "%X", 2) == 0)
 		{
 			size_t	j;
