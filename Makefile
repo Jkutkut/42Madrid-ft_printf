@@ -17,6 +17,7 @@ CC			=	gcc -Wall -Wextra -Werror
 NAME		=	libftprintf.a
 
 SRCS		=	src/ft_itoa_base.c \
+				src/ft_nbrlen.c \
 				src/ft_printf.c \
 				src/ft_putchar_fd.c \
 				src/ft_putstr_fd.c \
@@ -54,7 +55,6 @@ fclean: clean
 
 clean:
 	@echo "${LRED}Cleaning ${NC}binaries\c"
-	@# rm -rf $(OBJS)
 	@rm -rf bin
 	@echo "${LGREEN} [OK]${NC}"
 
