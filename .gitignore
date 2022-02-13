@@ -1,7 +1,8 @@
 .vscode
 bin
+a.out
+*.out
 libft*
-*/*.h
 run
 
 test*
