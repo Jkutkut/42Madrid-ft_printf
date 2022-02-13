@@ -6,13 +6,13 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 22:34:52 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/06 00:16:44 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:32:53 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../src/ft_printf.h"
 
-void	test(long int i, char *base)
+void	test(ssize_t i, char *base)
 {
 	char *str;
 
