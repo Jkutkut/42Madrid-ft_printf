@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:07:03 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/02/13 22:46:43 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 22:58:28 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,43 +17,41 @@ int	ft_print_argv(char **format, va_list lst)
 	int		i;
 	char	*str;
 
-	i = -1;
-	if (ft_strncmp(*format, "%c", 2) == 0)
+	if (*++(*format) == 'c')
 		i = ft_putchar_fd(va_arg(lst, int), 1);
-	else if (ft_strncmp(*format, "%s", 2) == 0)
+	else if (**format == 's')
 		i = ft_putstr_fd(va_arg(lst, char *), 1);
-	else if (ft_strncmp(*format, "%p", 2) == 0)
+	else if (**format == 'p')
 		i = ft_put_pointer_fd(va_arg(lst, unsigned long), 1);
-	else if (!ft_strncmp(*format, "%d", 2) || !ft_strncmp(*format, "%i", 2))
+	else if (**format == 'd' || **format == 'i')
 	{
 		str = ft_itoa_base(va_arg(lst, int), DECIMAL);
 		i = ft_putstr_fd(str, 1);
 		free(str);
 	}
-	else if (ft_strncmp(*format, "%u", 2) == 0)
+	else if (**format == 'u')
 	{
 		str = ft_itoa_base(va_arg(lst, unsigned int), DECIMAL);
 		i = ft_putstr_fd(str, 1);
 		free(str);
 	}
-	else if (ft_strncmp(*format, "%%", 2) == 0)
+	else if (**format == '%')
 		i = ft_putchar_fd('%', 1);
 	else
 	{
 		str = ft_itoa_base(va_arg(lst, unsigned int), HEXADECIMAL);
-		if (!ft_strncmp(*format, "%X", 2))
+		if (**format == 'X')
 			ft_strtoupper(str);
 		i = ft_putstr_fd(str, 1);
 		free(str);
 	}
-	*format += 2;
-	
+	(*format)++;
 	return (i);
 }
 
 int	ft_print_until_format(char **format)
 {
-	int	i;
+	int		i;
 	char	*str;
 
 	if (format == NULL || *format == NULL)
@@ -65,7 +63,6 @@ int	ft_print_until_format(char **format)
 	write(1, str, i);
 	*format += i;
 	return (i);
-
 }
 
 int	ft_format_printf(char *format, va_list lst)
@@ -82,13 +79,7 @@ int	ft_format_printf(char *format, va_list lst)
 		i += j;
 		if (*format == '\0')
 			return (i);
-		j = ft_print_argv(&format, lst);
-		if (j < 0)
-		{
-			ft_putstr_fd("not implemented\n", 1);
-			break;
-		}
-		i += j;
+		i += ft_print_argv(&format, lst);
 	}
 	return (i);
 }
