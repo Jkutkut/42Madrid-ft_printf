@@ -1,6 +1,6 @@
 # Colors:
 NC			=	\033[0m
-LRED			=	\033[0;31m
+LRED		=	\033[0;31m
 GREEN		=	\033[0;32m
 LRED		=	\033[1;31m
 LGREEN		=	\033[1;32m
@@ -19,12 +19,12 @@ NAME		=	libftprintf.a
 SRCS		=	src/ft_itoa_base.c \
 				src/ft_nbrlen.c \
 				src/ft_printf.c \
+				src/ft_ptoa.c \
 				src/ft_putchar_fd.c \
 				src/ft_putstr_fd.c \
 				src/ft_strlcpy.c \
 				src/ft_strncmp.c \
 				src/ft_nbrlen.c \
-				src/ft_printf.h \
 				src/ft_putnbr_fd.c \
 				src/ft_strdup.c \
 				src/ft_strlen.c \

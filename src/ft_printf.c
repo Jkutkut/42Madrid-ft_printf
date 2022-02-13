@@ -6,66 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:07:03 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/02/13 21:30:46 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 21:50:05 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdint.h>
-
-#define DECIMAL "0123456789"
-#define HEXADECIMAL "0123456789abcdef"
-
-size_t	ft_nbrlenv2(uintptr_t n, ssize_t base_len)
-{
-	size_t	order;
-
-	if (base_len <= 0)
-		return (0);
-	if (!n)
-		return (1);
-	order = 0;
-	// if (n < 0)
-	// 	order++;
-	while (n != 0)
-	{
-		order++;
-		n /= base_len;
-	}
-	return (order);
-}
-
-char	*ft_itoa_basev2(uintptr_t nbr, char *base)
-{
-	ssize_t	b_len;
-	size_t	order;
-	char	*str;
-	// char	sign;
-
-	b_len = ft_strlen(base);
-	order = ft_nbrlenv2(nbr, b_len);
-	// printf("ORDER should be 16: %lu\n", order);
-	str = (char *) malloc(sizeof(char) * (order + 1));
-	if (str == NULL)
-		return (str);
-	str[order--] = '\0';
-	// sign = 1;
-	// if (nbr < 0)
-	// {
-	// 	sign = -1;
-	// 	str[0] = '-';
-	// }
-	if (nbr == 0)
-		str[order] = '0';
-	while (nbr != 0)
-	{
-		// printf("  %lx : nbr\n", nbr);
-		// str[order--] = base[((ssize_t) nbr % b_len) * sign];
-		str[order--] = base[ nbr % b_len];
-		nbr /= b_len;
-	}
-	return (str);
-}
 
 int	ft_print_argv(char **format, va_list lst)
 {
@@ -79,15 +24,12 @@ int	ft_print_argv(char **format, va_list lst)
 		i = ft_putstr_fd(va_arg(lst, char *), 1);
 	else if (ft_strncmp(*format, "%p", 2) == 0)
 	{
-		str = ft_itoa_basev2((uintptr_t) va_arg(lst, unsigned long long), HEXADECIMAL);
+		str = ft_ptoa(va_arg(lst, unsigned long), HEXADECIMAL);
 		if (*str == '0')
 			i = ft_putstr_fd("(nil)", 1);
 		else
 		{
 			i = ft_putstr_fd("0x", 1);
-			// if (*str == '-')
-			// 	i += ft_putstr_fd(str + 1, 1);
-			// else
 			i += ft_putstr_fd(str, 1);
 		}		
 		free(str);
