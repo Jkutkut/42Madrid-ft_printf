@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:10:35 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 21:49:49 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 21:58:55 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 char	*ft_itoa_base(ssize_t nbr, char *base);
 size_t	ft_nbrlen(ssize_t n, ssize_t base_len);
 int		ft_printf(const char *, ...);
-char	*ft_ptoa(unsigned long nbr, char *base);
+size_t	ft_put_pointer_fd(unsigned long p, int fd);
 size_t	ft_putchar_fd(char s, int fd);
 // void	ft_putnbr_fd(int n, int fd);
 size_t	ft_putstr_fd(char *s, int fd);
