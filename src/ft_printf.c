@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:07:03 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/02/13 18:54:18 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 18:57:04 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,8 @@ int	ft_print_argv(char **format, va_list lst)
 	}
 	else if (ft_strncmp(*format, "%u", 2) == 0)
 	{
-		*format += 2;
-		str = ft_itoa_base(va_arg(lst, unsigned long), DECIMAL);
-		ft_putstr_fd(str, 1);
-		i = ft_strlen(str);
+		str = ft_itoa_base(va_arg(lst, unsigned int), DECIMAL);
+		i = ft_putstr_fd(str, 1);
 		free(str);
 	}
 	else if (ft_strncmp(*format, "%%", 2) == 0)
