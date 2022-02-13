@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 09:28:19 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 20:56:50 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 21:05:06 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ int	main(void)
 	printf("%p -- ", (void *) 0);
 	fflush(stdout);
 	ft_printf("%p\n", 0);
-
-	printf("%p %p -- ", (void *) LONG_MIN, (void *) LONG_MAX);
-	fflush(stdout);
+	printf("%s---------------------------------%s\n", YELLOW, NC);
+	printf("%p %p\n", (void *) LONG_MIN, (void *) LONG_MAX);
 	ft_printf("%p %p\n", LONG_MIN, LONG_MAX);
-
-	printf("%p %p -- ", (void *) ULONG_MAX, (void *) -ULONG_MAX);
-	fflush(stdout);
+	printf("%s---------------------------------%s\n", YELLOW, NC);
+	printf("%p %p\n", (void *) ULONG_MAX, (void *) -ULONG_MAX);
 	ft_printf("%p %p\n", ULONG_MAX, -ULONG_MAX);
 	printf("%s---------------------------------%s\n", YELLOW, NC);
 	printf("%x %x %x\n", 0, 1, -1);
