@@ -16,7 +16,8 @@ CC			=	gcc -Wall -Wextra -Werror
 # Code variables
 NAME		=	libftprintf.a
 
-SRCS		=	src/ft_itoa_base.c \
+SRCS		=	src/ft_hasany.c \
+				src/ft_itoa_base.c \
 				src/ft_nbrlen.c \
 				src/ft_printf.c \
 				src/ft_put_pointer_fd.c \

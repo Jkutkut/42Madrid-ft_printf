@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:10:35 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 23:00:01 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 23:09:07 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define DECIMAL "0123456789"
 # define HEXADECIMAL "0123456789abcdef"
 
+int		ft_hasany(const char *str, char c);
 char	*ft_itoa_base(ssize_t nbr, char *base);
 size_t	ft_nbrlen(ssize_t n, ssize_t base_len);
 int		ft_printf(const char *format, ...);

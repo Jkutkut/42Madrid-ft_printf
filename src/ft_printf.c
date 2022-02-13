@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:07:03 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/02/13 22:58:28 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 23:05:24 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,12 @@ int	ft_print_argv(char **format, va_list lst)
 		i = ft_putstr_fd(va_arg(lst, char *), 1);
 	else if (**format == 'p')
 		i = ft_put_pointer_fd(va_arg(lst, unsigned long), 1);
-	else if (**format == 'd' || **format == 'i')
+	else if (ft_hasany("idu", **format))
 	{
-		str = ft_itoa_base(va_arg(lst, int), DECIMAL);
-		i = ft_putstr_fd(str, 1);
-		free(str);
-	}
-	else if (**format == 'u')
-	{
-		str = ft_itoa_base(va_arg(lst, unsigned int), DECIMAL);
+		if (**format == 'u')
+			str = ft_itoa_base(va_arg(lst, unsigned int), DECIMAL);
+		else
+			str = ft_itoa_base(va_arg(lst, int), DECIMAL);
 		i = ft_putstr_fd(str, 1);
 		free(str);
 	}
