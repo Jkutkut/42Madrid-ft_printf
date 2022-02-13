@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:07:03 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/02/13 17:03:16 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/13 18:54:18 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int	ft_print_argv(char **format, va_list lst)
 {
-	int	i;
+	int		i;
 	char	*str;
 
 	i = -1;
@@ -32,10 +32,14 @@ int	ft_print_argv(char **format, va_list lst)
 	}
 	else if (ft_strncmp(*format, "%p", 2) == 0)
 	{
-		str = ft_itoa_base(va_arg(lst, ssize_t), HEXADECIMAL);
-		i = ft_strlen(str) + 2;
-		write(1, "0x", 2);
-		write(1, str, i);
+		str = ft_itoa_base(va_arg(lst, unsigned long long), HEXADECIMAL);
+		if (*str == '0')
+			i = ft_putstr_fd("(nil)", 1);
+		else
+		{
+			i = ft_putstr_fd("0x", 1);
+			i += ft_putstr_fd(str, 1);
+		}		
 		free(str);
 	}
 	else if (!ft_strncmp(*format, "%d", 2) || !ft_strncmp(*format, "%i", 2))
@@ -115,7 +119,7 @@ int	ft_format_printf(char *format, va_list lst)
 		j = ft_print_argv(&format, lst);
 		if (j < 0)
 		{
-			ft_putstr_fd("not implemented", 1);
+			ft_putstr_fd("not implemented\n", 1);
 			break;
 		}
 		i += j;
