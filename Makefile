@@ -59,8 +59,3 @@ clean:
 	@echo "${LGREEN} [OK]${NC}"
 
 .PHONY: all re fclean clean
-
-# TODO Debug
-libft:
-	@echo "Obtaining latest version of ${GREEN}Libft${NC} from ${LBLUE}GitHub${NC}..."
-	@if [ ! -d libft ]; then git clone https://github.com/Jkutkut/42Madrid-Libft.git libft; fi
