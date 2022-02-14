@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 21:44:53 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 23:00:42 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:09:22 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,8 @@ size_t	ft_put_pointer_fd(unsigned long p, int fd)
 	size_t	i;
 
 	str = ft_ptoa(p, HEXADECIMAL);
-	if (*str == '0')
-		i = ft_putstr_fd("(nil)", fd);
-	else
-	{
-		i = ft_putstr_fd("0x", fd);
-		i += ft_putstr_fd(str, fd);
-	}
+	i = ft_putstr_fd("0x", fd);
+	i += ft_putstr_fd(str, fd);
 	free(str);
 	return (i);
 }
