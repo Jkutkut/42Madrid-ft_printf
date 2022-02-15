@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:10:35 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 23:09:07 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/15 14:50:18 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdarg.h> // va_list
 # include <stdlib.h> // malloc free
 # include <unistd.h> // write
-# include <stdio.h> // ! TODO DEBUG
 
 # define DECIMAL "0123456789"
 # define HEXADECIMAL "0123456789abcdef"
