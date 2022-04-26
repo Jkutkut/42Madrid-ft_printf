@@ -6,11 +6,12 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 09:28:19 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 21:05:06 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:38:31 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/ft_printf.h"
+#include "ft_printf.h"
+#include <stdio.h>
 #include <limits.h>
 #include "colors.h"
 

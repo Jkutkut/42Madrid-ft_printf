@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 22:34:52 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 16:32:53 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:38:03 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/ft_printf.h"
+#include "ft_printf.h"
 
 void	test(ssize_t i, char *base)
 {
