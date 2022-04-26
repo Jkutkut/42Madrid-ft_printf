@@ -12,6 +12,7 @@ OS			=	$(shell uname -s)
 
 
 # Compile variables
+BIN			=	bin
 FLAGS		=	-Wall -Wextra -Werror
 INCLUDE 	=	-I ./include
 ifeq ($(OS), Linux)
@@ -48,7 +49,7 @@ SRCS		=	${PRINT:%=print/%} \
 				${TOOLS:%=tools/%} \
 				ft_printf.c
 
-OBJS		=	${SRCS:%.c=bin/%.o}
+OBJS		=	${SRCS:%.c=$(BIN)/%.o}
 
 
 # Makefile logic
@@ -60,7 +61,7 @@ $(NAME):	$(OBJS)
 	@$(LIB_CC) $(NAME) $(OBJS)
 	@echo "${LGREEN}[OK]${NC}"
 
-bin/%.o: src/%.c
+$(BIN)/%.o: src/%.c
 	@echo "- ${TITLE}Compiling${NC} $< -> $@\c"
 	@mkdir -p $(dir $@)
 	@$(CC) -c $< -o $@
@@ -73,7 +74,7 @@ fclean: clean
 
 clean:
 	@echo "${LRED}Cleaning ${NC}binaries\c"
-	@rm -rf bin
+	@rm -rf $(BIN)
 	@echo "${LGREEN} [OK]${NC}"
 
 .PHONY: all re fclean clean
