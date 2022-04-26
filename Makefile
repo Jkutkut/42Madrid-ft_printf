@@ -25,7 +25,11 @@ CC			=	gcc $(FLAGS) $(INCLUDE)
 # Code variables
 NAME		=	libftprintf.a
 
-PRINT		=	ft_put_pointer_fd.c \
+PRINT		=	ft_format_printf.c \
+				ft_print_argv.c \
+				ft_print_number.c \
+				ft_print_until_format.c \
+				ft_put_pointer_fd.c \
 				ft_putchar_fd.c \
 				ft_putstr_fd.c
 
