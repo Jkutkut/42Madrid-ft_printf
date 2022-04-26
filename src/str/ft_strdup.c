@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 11:44:04 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/26 13:36:33 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/26 13:46:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "str.h"
+#include "str.h"
 
 char	*ft_strdup(const char *s)
 {
