@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 22:07:03 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/02/14 15:40:14 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:07:34 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_print_number(char type, va_list lst)
 	}
 	else
 		str = ft_itoa_base(va_arg(lst, int), DECIMAL);
-	i = ft_putstr_fd(str, 1);
+	i = ft_putstr_fd(str, FD);
 	free(str);
 	return (i);
 }
@@ -37,15 +37,15 @@ int	ft_print_argv(char **format, va_list lst)
 	int		i;
 
 	if (*++(*format) == 'c')
-		i = ft_putchar_fd(va_arg(lst, int), 1);
+		i = ft_putchar_fd(va_arg(lst, int), FD);
 	else if (**format == 's')
-		i = ft_putstr_fd(va_arg(lst, char *), 1);
+		i = ft_putstr_fd(va_arg(lst, char *), FD);
 	else if (**format == 'p')
-		i = ft_put_pointer_fd(va_arg(lst, unsigned long), 1);
+		i = ft_put_pointer_fd(va_arg(lst, unsigned long), FD);
 	else if (ft_hasany("iduxX", **format))
 		i = ft_print_number(**format, lst);
 	else
-		i = ft_putchar_fd('%', 1);
+		i = ft_putchar_fd('%', FD);
 	(*format)++;
 	return (i);
 }
