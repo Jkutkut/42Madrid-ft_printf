@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:10:35 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/26 12:07:04 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:28:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_strtoupper(char *str);
+
+int	ft_printf_fd(int fd, const char *format, ...);
+int	ft_printf(const char *format, ...);
 
 #endif
