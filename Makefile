@@ -8,9 +8,16 @@ YELLOW		=	\033[1;33m
 LBLUE		=	\033[1;34m
 TITLE		=	\033[38;5;33m
 
+OS			=	$(shell uname -s)
+
+
 # Compile variables
 FLAGS		=	-Wall -Wextra -Werror
 INCLUDE 	=	-I ./include
+ifeq ($(OS), Linux)
+	INCLUDE 	=	-I ./include -D LINUX
+endif
+
 LIB_CC		=	ar rcT
 CC			=	gcc $(FLAGS) $(INCLUDE)
 

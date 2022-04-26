@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:10:35 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/26 12:28:59 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:47:18 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 
 # ifndef FD
 #  define FD STDOUT
+# endif
+
+# ifdef LINUX
+#  define NULL_P "(nil)"
+# else
+#  define NULL_P 0
 # endif
 
 # define DECIMAL "0123456789"

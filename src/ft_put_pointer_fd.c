@@ -6,18 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 21:44:53 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/14 15:09:22 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:47:42 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-#ifndef HEXADECIMAL
-# define HEXADECIMAL "0123456789abcdef"
-#endif
-
-size_t	ft_strlen(const char *s);
-size_t	ft_putstr_fd(char *s, int fd);
+#include "ft_printf.h"
 
 static size_t	ft_plen(unsigned long n, long base_len)
 {
@@ -63,6 +56,8 @@ size_t	ft_put_pointer_fd(unsigned long p, int fd)
 	char	*str;
 	size_t	i;
 
+	if (NULL_P && !p)
+		return (ft_putstr_fd(NULL_P, fd));
 	str = ft_ptoa(p, HEXADECIMAL);
 	i = ft_putstr_fd("0x", fd);
 	i += ft_putstr_fd(str, fd);
