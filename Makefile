@@ -9,8 +9,10 @@ LBLUE		=	\033[1;34m
 TITLE		=	\033[38;5;33m
 
 # Compile variables
+FLAGS		=	-Wall -Wextra -Werror
+INCLUDE 	=	-I ./include
 LIB_CC		=	ar rcT
-CC			=	gcc -Wall -Wextra -Werror
+CC			=	gcc $(FLAGS) $(INCLUDE)
 
 
 # Code variables
