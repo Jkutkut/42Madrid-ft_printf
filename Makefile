@@ -29,7 +29,7 @@ PRINT		=	ft_put_pointer_fd.c \
 				ft_putchar_fd.c \
 				ft_putstr_fd.c
 
-STRING		=	ft_strdup.c \
+STR			=	ft_strdup.c \
 				ft_strlcpy.c \
 				ft_strlen.c \
 				ft_strncmp.c \
@@ -40,7 +40,7 @@ TOOLS		=	ft_hasany.c \
 				ft_nbrlen.c
 
 SRCS		=	${PRINT:%=print/%} \
-				${STRING:%=string/%} \
+				${STR:%=str/%} \
 				${TOOLS:%=tools/%} \
 				ft_printf.c
 

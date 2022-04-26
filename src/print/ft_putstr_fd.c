@@ -6,13 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 08:54:24 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/13 16:12:04 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/26 13:34:06 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-size_t	ft_strlen(const char *s);
+#include "print.h"
 
 size_t	ft_putstr_fd(char *s, int fd)
 {

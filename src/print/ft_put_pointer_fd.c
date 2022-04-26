@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 21:44:53 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/26 12:47:42 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/26 13:33:46 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "print.h"
 
 static size_t	ft_plen(unsigned long n, long base_len)
 {

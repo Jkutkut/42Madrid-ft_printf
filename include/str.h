@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   str.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 11:21:44 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/01/22 16:33:41 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/04/26 13:22:27 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/04/26 13:35:17 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#ifndef STR_H
+# define STR_H
 
+# include "ft_printf.h"
+
+char	*ft_strdup(const char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strtoupper(char *str);
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	i;
-	size_t	dst_l;
-
-	i = 0;
-	dst_l = ft_strlen(src);
-	if (size == 0)
-		return (dst_l);
-	while (src[i] && i < size - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst_l);
-}
+#endif
