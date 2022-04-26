@@ -6,13 +6,13 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:42:24 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/26 13:45:41 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/26 13:55:55 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "print.h"
 
-int	ft_print_argv(int fd, char **format, va_list lst)
+int	ft_print_argv(int fd, const char **format, va_list lst)
 {
 	int		i;
 
