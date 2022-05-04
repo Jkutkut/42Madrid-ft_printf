@@ -19,7 +19,7 @@ ifeq ($(OS), Linux)
 	INCLUDE 	=	-I ./include -D LINUX
 endif
 
-LIB_CC		=	ar rcT
+LIB_CC		=	ar -rc
 CC			=	gcc $(FLAGS) $(INCLUDE)
 
 
