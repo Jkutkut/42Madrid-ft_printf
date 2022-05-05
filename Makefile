@@ -57,9 +57,9 @@ all: $(NAME)
 re: fclean all
 
 $(NAME):	$(OBJS)
-	@echo "${TITLE}Compiling ${YELLOW}$(NAME)${NC} \c"
+	@echo "\n${TITLE}Compiling ${YELLOW}$(NAME)${NC} \c"
 	@$(LIB_CC) $(NAME) $(OBJS)
-	@echo "${LGREEN}[OK]${NC}"
+	@echo "${LGREEN}[OK]${NC}\n"
 
 $(BIN)/%.o: src/%.c
 	@echo "- ${TITLE}Compiling${NC} $< -> $@\c"
