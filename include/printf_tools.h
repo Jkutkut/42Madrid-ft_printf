@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.h                                            :+:      :+:    :+:   */
+/*   printf_tools.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 12:57:28 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/26 13:20:47 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/05/06 18:13:23 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOOLS_H
-# define TOOLS_H
+#ifndef PRINTF_TOOLS_H
+# define PRINTF_TOOLS_H
 
 # include "ft_printf.h"
 

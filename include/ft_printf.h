@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:10:35 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/26 13:35:53 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/05/06 18:13:57 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 
 # include "print.h"
 # include "str.h"
-# include "tools.h"
+# include "printf_tools.h"
 
 int	ft_printf_fd(int fd, const char *format, ...);
 int	ft_printf(const char *format, ...);
