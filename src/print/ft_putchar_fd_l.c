@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar_fd_l.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 08:54:24 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/26 13:33:52 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/05/06 16:30:36 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "print.h"
 
-size_t	ft_putchar_fd(char c, int fd)
+size_t	ft_putchar_fd_l(char c, int fd)
 {
 	write(fd, &c, 1);
 	return (1);

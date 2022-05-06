@@ -31,8 +31,8 @@ PRINT		=	ft_format_printf.c \
 				ft_print_number.c \
 				ft_print_until_format.c \
 				ft_put_pointer_fd.c \
-				ft_putchar_fd.c \
-				ft_putstr_fd.c
+				ft_putchar_fd_l.c \
+				ft_putstr_fd_l.c
 
 STR			=	ft_strdup.c \
 				ft_strlcpy.c \

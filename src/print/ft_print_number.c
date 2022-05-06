@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:41:51 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/26 13:45:44 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/05/06 16:25:24 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_print_number(int fd, char type, va_list lst)
 	}
 	else
 		str = ft_itoa_base(va_arg(lst, int), DECIMAL);
-	i = ft_putstr_fd(str, fd);
+	i = ft_putstr_fd_l(str, fd);
 	free(str);
 	return (i);
 }
